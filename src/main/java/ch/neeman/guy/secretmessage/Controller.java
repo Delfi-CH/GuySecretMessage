@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/secretmessage")
+@RequestMapping("/secretmessage")
 @CrossOrigin("*")
 public class Controller {
 
