@@ -23,7 +23,7 @@ public class RateLimitInterceptor implements HandlerInterceptor {
 
         Long last = lastRequest.get(ip);
 
-        if (last != null && (now - last) < 4000) {
+        if (last != null && (now - last) < 1000) {
             response.setStatus(429);
             response.getWriter().write("Too many requests");
             return false;
