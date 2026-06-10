@@ -12,10 +12,7 @@ RUN apt-get update && apt-get install -y maven git
 WORKDIR /App
 
 # Clone project
-RUN git clone https://github.com/GuyNeeman/SecretMessage.git
-
-# Set working directory
-WORKDIR /App/SecretMessage
+COPY . .
 
 # Build the app
 RUN mvn -DskipTests package
@@ -35,7 +32,7 @@ RUN apk add --no-cache openjdk21-jre
 WORKDIR /App
 
 # copy jar from first image
-COPY --from=builder /App/SecretMessage/target/*.jar app.jar
+COPY --from=builder /App/target/*.jar app.jar
 
 # Expose port
 EXPOSE 8080
